@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/WF51BS/!svn/ver/2729/branches/webserver/WebRoot/WS/outfax
+END
+OutfaxAction.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/WF51BS/!svn/ver/3101/branches/webserver/WebRoot/WS/outfax/OutfaxAction.js
+END
+Outfaxmodel.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/WF51BS/!svn/ver/2425/branches/webserver/WebRoot/WS/outfax/Outfaxmodel.js
+END
+ModPri.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/WF51BS/!svn/ver/2425/branches/webserver/WebRoot/WS/outfax/ModPri.js
+END
+Outfaxgrid.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/WF51BS/!svn/ver/3113/branches/webserver/WebRoot/WS/outfax/Outfaxgrid.js
+END
+ModeFaxInfo.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/WF51BS/!svn/ver/2425/branches/webserver/WebRoot/WS/outfax/ModeFaxInfo.js
+END
+Outfaxstore.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/WF51BS/!svn/ver/2425/branches/webserver/WebRoot/WS/outfax/Outfaxstore.js
+END

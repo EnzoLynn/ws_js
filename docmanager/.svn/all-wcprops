@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/WF51BS/!svn/ver/3093/branches/webserver/WebRoot/WS/docmanager
+END
+docTree.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/WF51BS/!svn/ver/3145/branches/webserver/WebRoot/WS/docmanager/docTree.js
+END
+docopenwin.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/WF51BS/!svn/ver/3122/branches/webserver/WebRoot/WS/docmanager/docopenwin.js
+END
+faxtodocwin.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/WF51BS/!svn/ver/2950/branches/webserver/WebRoot/WS/docmanager/faxtodocwin.js
+END
+faxtodocsinglewin.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/WF51BS/!svn/ver/3113/branches/webserver/WebRoot/WS/docmanager/faxtodocsinglewin.js
+END
+docgridstore.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/WF51BS/!svn/ver/2425/branches/webserver/WebRoot/WS/docmanager/docgridstore.js
+END
+docgridAction.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/WF51BS/!svn/ver/3120/branches/webserver/WebRoot/WS/docmanager/docgridAction.js
+END
+docgrid.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/WF51BS/!svn/ver/3113/branches/webserver/WebRoot/WS/docmanager/docgrid.js
+END
+docAddWin.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/WF51BS/!svn/ver/3113/branches/webserver/WebRoot/WS/docmanager/docAddWin.js
+END
+docgridmodel.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/WF51BS/!svn/ver/2425/branches/webserver/WebRoot/WS/docmanager/docgridmodel.js
+END
+docgridTabView.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/WF51BS/!svn/ver/2444/branches/webserver/WebRoot/WS/docmanager/docgridTabView.js
+END
+docstatusbar.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/WF51BS/!svn/ver/3056/branches/webserver/WebRoot/WS/docmanager/docstatusbar.js
+END
+faxtodocEditor.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/WF51BS/!svn/ver/2899/branches/webserver/WebRoot/WS/docmanager/faxtodocEditor.js
+END
+docmanagerSelfFilter.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/WF51BS/!svn/ver/2579/branches/webserver/WebRoot/WS/docmanager/docmanagerSelfFilter.js
+END

@@ -1,0 +1,97 @@
+Ext.define('WS.draft.ReceiveInfo', {
+	extend: 'Ext.window.Window',
+	iconCls:'config',
+	title: '收件人信息',
+	bodyCls: 'panelFormBg',
+    border: false,
+    height: 280,
+    width: 450,
+    modal: true,  
+    resizable: false,
+    items:[{
+    	xtype: 'form',
+		height: 220,
+    	width: 440,
+    	bodyCls: 'panelFormBg',
+    	border: false,
+		bodyPadding: 5,
+	    url: WsConf.Url,
+        layout: {
+        	type:'table',
+        	columns:2
+        },
+	    itemId: 'formID',
+	    defaults: {
+	    	xtype: 'textfield',
+	    	labelAlign: 'right',
+	    	labelWidth: 60,
+			width: 400,
+			margin: '15 0 0 0'
+	    },
+	    items:[{
+	    	name: 'faxNumber',
+	    	fieldLabel: '传真号码',
+	    	width:250
+		},{
+	    	name: 'faxNumber',
+	    	fieldLabel: '分机',
+	    	labelWidth: 40,
+	    	width:145
+		}, {
+	    	name: 'faxNumber',
+	    	fieldLabel: '邮箱',
+	    	colspan:2
+	    }, {
+	    	name: 'faxNumber',
+	    	fieldLabel: '移动电话',
+	    	colspan:2
+	    }, {
+	    	name: 'faxNumber',
+	    	fieldLabel: '收件人',
+	    	colspan:2
+	    }, {
+	    	name: 'faxNumber',
+	    	fieldLabel: '组织',
+	    	colspan:2
+	    }]
+    }],
+     buttons:[{
+		        text: '确定',
+		        itemId: 'submit',
+		        handler: function() {
+		        	var me = this;
+		        	var w = me.up('window');
+		        	var form = w.down('#formID').getForm();
+                    if (form.isValid()) {
+                    	form.submit({
+                    		params: {
+                    			req:'dataset',
+						        dataname: 'address',             //dataset名称，根据实际情况设置,数据库名
+						        restype: 'json',
+						        action: w.action,
+						        sessiontoken: getSessionToken()
+						        
+                    		},
+							success : function(form, action) {
+								w.grid.loadGrid('');
+								w.close();
+								
+							},
+							failure : function(form, action) {
+								Ext.Msg.alert('失败',action.result.msg);
+								errorProcess(action.result.code);
+								w.close();
+							}
+							
+						});
+                    }
+		        }
+		    },{
+		        text: '取消',
+		        handler: function() {
+		        	var me = this;
+		        	me.up('toolbar').up('window').close();
+		        	
+		        }
+		    }]
+});

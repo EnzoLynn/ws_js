@@ -1,0 +1,255 @@
+Ext.define('WS.draft.ModeFaxInfo', {
+	extend: 'Ext.window.Window',
+	iconCls:'config',
+	title: '修改传真信息',
+		height: 440,
+		width: 500,
+		modal: true,
+		resizable: false,
+		layout: 'auto',
+		collapsible: false,
+		frame: false,
+		border: false,
+		defaults: {
+			xtype: 'form',
+			bodyCls: 'panelFormBg',
+			frame: false,
+			border: false,
+			margin: '5 5 0 5'
+		},
+		items: [{
+			defaults: {
+				xtype: 'fieldset',
+				frame: false,
+				border: false,
+				margin: '10 0 0 0'
+			},
+			items: [{
+				items: [{
+					xtype: 'textfield',
+					labelAlign: 'right',
+					width: 400,
+					fieldLabel: '传真主题',
+            		name: 'subject'
+				},{
+					xtype: 'textarea',
+					labelAlign: 'right',
+					width: 400,
+					height: 50,
+					fieldLabel: '传真注释',
+            		name: 'subject'
+				},{
+					xtype: 'checkbox',
+					name: 'detailSend',
+					width: 200,
+					boxLabel: '提交到服务器后暂不发送',
+					margin: '0 0 0 100'
+				}]
+			},{
+				title: '传真发送参数',
+				layout: {
+					type: 'table',
+					columns: 2
+				},
+				defaults: {
+					xtype: 'checkbox',
+					labelAlign: 'right',
+					width: 200,
+					frame: false,
+					border: false,
+					margin: '0 0 0 20'
+				},
+				items: [{
+					fieldLabel: '优先级',
+					editable: false,
+					xtype: 'combo',
+					name: 'proLever',
+					value: 2,
+					store: 'prioritySwinID',
+					queryMode: 'local',
+					displayField: 'priorityName',
+					valueField: 'priorityId'
+				},{
+					name: 'mesReciver',
+					boxLabel: '短信通知收件人'
+				},{
+					xtype: 'numberfield',
+					name: 'failCount',
+					fieldLabel: '失败重试次数',
+					maxText: '重试次数最大为10',
+					minText: '重试次数最小为1',
+					value: 3,
+					minValue: 1,
+					maxValue: 10,
+					allowBlank: false
+				},{
+					name: 'mailReciver',
+					boxLabel: '邮件通知收件人'
+				},{
+					name: 'stepMin',
+					fieldLabel: '重试间隔(秒)',
+					xtype: 'numberfield',
+					maxText: '重试次数最大为300',
+					minText: '重试次数最小为0',
+					value: 60,
+					minValue: 0,
+					maxValue: 300,
+					allowBlank: false
+				},{
+					name: 'pageHeader',
+					checked: true,
+					boxLabel: '添加页眉'
+				},{
+					name: 'tryFist',
+					boxLabel: '失败重试从第一页开始',
+					checked: true,
+					colspan: 2,
+					margin: '0 0 0 240'
+				},{
+					name: 'resolution',
+					boxLabel: '使用200x200分辨率发送传真',
+					checked: true,
+					colspan: 2,
+					margin: '0 0 0 240'
+				},{
+					name: 'resolution',
+					name: 'usedGroupPort',
+					boxLabel: '使用群发端口',
+					colspan: 2,
+					margin: '0 0 0 240'
+				}]
+			},{
+				itemId:'fsSendTime',
+				margin: '10 0 0 0',
+				layout: {
+					type: 'table',
+					columns: 8
+				},
+				defaults: {
+					xtype: 'numberfield',
+					margin: '2 0 0 5'
+				},
+				items: [{
+					xtype: 'checkbox',
+					itemId:'ifSetSendTime',
+					name: 'setSendTime',
+					width: 100,
+					boxLabel: '定制发送时间',
+					listeners: {
+						change: function (cb, nValue, oValue, opts) {
+							if (cb.getValue()) {
+								Ext.Array.each(cb.up('fieldset').query('numberfield'), function (item, index, allItems) {
+									item.setDisabled(false);
+								});
+								cb.up('fieldset').down('datefield').setDisabled(false);
+							} else {
+								Ext.Array.each(cb.up('fieldset').query('numberfield'), function (item, index, allItems) {
+									item.setDisabled(true);
+								});
+								cb.up('fieldset').down('datefield').setDisabled(true);
+							}
+						}
+					}
+				},{
+					xtype: 'datefield',
+					itemId:'sendDate',
+					name: 'sendDate',
+					format: 'Y-m-d',
+					disabled: true,
+					submitValue:false,
+					value: new Date(),
+					width: 100,
+					minValue: new Date(),
+					minText: '发送时间不能小于当前时间'
+				},{
+					name: 'sendTimeHouer',
+					itemId:'sendTimeHouer',
+					xtype: 'numberfield',
+					maxText: '最大为23',
+					minText: '最小为0',
+					disabled: true,
+					submitValue:false,
+					value: (new Date()).getHours(),
+					width: 48,
+					minValue: 0,
+					maxValue: 23,
+					allowBlank: false
+				},{
+					xtype: 'displayfield',
+					value: '时'
+				},{
+					name: 'sendTimeMin',
+					itemId:'sendTimeMin',
+					xtype: 'numberfield',
+					maxText: '最大为60',
+					minText: '最小为0',
+					disabled: true,
+					submitValue:false,
+					value: (new Date()).getMinutes(),
+					width: 48,
+					minValue: 0,
+					maxValue: 60,
+					allowBlank: false
+				},{
+					xtype: 'displayfield',
+					value: '分'
+				},{
+					name: 'sendTimeSec',
+					itemId:'sendTimeSec',
+					xtype: 'numberfield',
+					maxText: '最大为60',
+					minText: '最小为0',
+					disabled: true,
+					submitValue:false,
+					value: (new Date()).getSeconds(),
+					width: 48,
+					minValue: 0,
+					maxValue: 60,
+					allowBlank: false
+				},{
+					xtype: 'displayfield',
+					value: '秒'
+				},{
+					xtype:'hidden',
+					itemId:'sendUTCTime',
+					name:'sendUTCTime',
+					value:''
+				}]
+			},{
+				xtype: 'panel',
+				frame: false,
+				border: false,
+				bodyCls: 'panelFormBg',
+				margin: '10 0 0 0',
+				height:40,
+				layout: {
+					type: 'table',
+					columns:2
+				},
+				defaults: {
+					width: 80,
+					frame: false,
+					border: false,
+					margin: '0 0 0 10'
+				},
+				items: [{
+					margin: '0 0 0 310',
+					xtype: 'button',
+					text: '确定',
+					handler: function () {
+						
+
+					}
+				},{
+					xtype: 'button',
+					text: '取消',
+					handler: function () {
+						
+							this.up('window').close();
+						
+					}
+				}]
+			}]
+
+		}]
+});
